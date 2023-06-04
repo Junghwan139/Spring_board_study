@@ -1,0 +1,13 @@
+package com.example.spring_board_study;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringBoardStudyApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringBoardStudyApplication.class, args);
+	}
+
+}
