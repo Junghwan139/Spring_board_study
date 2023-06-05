@@ -28,9 +28,6 @@ public class s1PostController {
         s1Post post1 = s1posv.s1_findOne(myid);
         model.addAttribute("post",post1);
         s1Author author1 = post1.getAuthor();
-        System.out.println("id : "+author1.getId());
-        System.out.println("이름 : "+author1.getName());
-        System.out.println("email : "+author1.getEmail());
         return "s1/s1_post_detail";
     }
 

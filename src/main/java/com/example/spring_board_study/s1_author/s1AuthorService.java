@@ -33,12 +33,13 @@ public class s1AuthorService {
     }
 
     // 업데이트
-    public void update(s1Author author, Long id){
+    public void update(s1AuthorRequestDto author){
 
-        s1Author author_1 = this.findByid(id);
-        author_1.setName(author.getName());
-        author_1.setPassword(author.getPassword());
-        s1auRepo.save(author_1);
+        s1Author author1 = this.findByid(Long.parseLong(author.getId()));
+        author1.setName(author.getName());
+        author1.setPassword(author.getPassword());
+
+        s1auRepo.save(author1);
     }
 
     // 삭제

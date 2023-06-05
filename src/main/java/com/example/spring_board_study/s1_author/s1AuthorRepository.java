@@ -9,8 +9,4 @@ public interface s1AuthorRepository extends JpaRepository<s1Author, Long> {
 
     s1Author findByEmail(String email);
 
-
-
-
-
 }

@@ -68,8 +68,8 @@ public class s1AuthorController {
 
     // update
     @PostMapping("s1_author_update")
-    public String s1_author_update(@RequestParam(value = "id")Long myid,s1Author author){
-        s1sv.update(author,myid);
+    public String s1_author_update(s1AuthorRequestDto author){
+        s1sv.update(author);
         return "redirect:/s1_authors";
     }
 
