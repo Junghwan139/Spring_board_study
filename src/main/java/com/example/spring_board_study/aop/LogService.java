@@ -23,7 +23,7 @@ import java.util.Enumeration;
 public class LogService {
 
     // Around 어노테이션을 통해 logging의 대상을 지정
-    @Around("execution(* com.example.spring_board_study..controller..*.*(..))")
+    @Around("execution(* com.example.spring_board_study.*.controller..*.*(..))")
     public Object controllerLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         // 로그의 형태를 json으로 출력하기 위해 json 객체 생성
@@ -43,17 +43,16 @@ public class LogService {
 
         }
         jsonObject.put("user inputs",jsonObject_detail);
-        // log4j 라이브러리를 통해 위해서 만든 jsonObject를 log로 출력
-        // 일반적으로 실무에서는 콘솔이 아니라, log를 파일로 영구저장되도록 관리한다.
-        // 그런데, 정상적인 request까지 모두 log로 남기게 되면 파일시스템에 용량이 full차는 경우가 빈번.
-        // 그래서 log.info 뿐만 아니라 log.trace, log.debug, log.info, log.error 등의 로그레벨이 존재한다.
-        // 에러가 발생했을 때만 아래 log가 출력된다.
 
-//        log.debug("안찍힘");
-//        log.error("찍힘");
+
+        log.debug("안찍힘");
+        log.error("찍힘");
         log.info("request info"+jsonObject);
 
         return proceedingJoinPoint.proceed();
+
+
+
 
 
 
