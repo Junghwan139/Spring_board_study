@@ -1,6 +1,9 @@
-package com.example.spring_board_study.s1_author;
+package com.example.spring_board_study.s1_author.controller;
 
-import com.example.spring_board_study.s1_post.s1Post;
+import com.example.spring_board_study.s1_author.s1Author;
+import com.example.spring_board_study.s1_author.s1AuthorRequestDto;
+import com.example.spring_board_study.s1_author.s1AuthorService;
+import com.example.spring_board_study.s1_post.controller.s1Post;
 import com.example.spring_board_study.s1_post.s1PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class s1AuthorController {
 
-    @Autowired s1AuthorService s1sv;
+    @Autowired
+    s1AuthorService s1sv;
     @Autowired s1PostService s1posv;
 
 

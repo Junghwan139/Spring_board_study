@@ -1,6 +1,7 @@
 package com.example.spring_board_study.s1_post;
 
 import com.example.spring_board_study.s1_author.s1AuthorRepository;
+import com.example.spring_board_study.s1_post.controller.s1Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

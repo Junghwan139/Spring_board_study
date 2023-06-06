@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Enumeration;
 
@@ -23,14 +22,12 @@ import java.util.Enumeration;
 public class LogService {
 
     // Around 어노테이션을 통해 logging의 대상을 지정
-    @Around("execution(* com.example.spring_board_study.*.controller..*.*(..))")
+    @Around("execution(* com.example.spring_board_study..controller..*.*(..))")
     public Object controllerLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
-        // 로그의 형태를 json으로 출력하기 위해 json 객체 생성
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("method name", proceedingJoinPoint.getSignature().getName());
 
-        // 사용자의 request정보는 HttpServletRequest객체 안에 담겨 있으므로, 해당 객체에서 추출
         HttpServletRequest req = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
         jsonObject.put("CRUD name", req.getMethod());  // get, put 요청
         Enumeration<String> req_body = req.getParameterNames();
@@ -39,6 +36,7 @@ public class LogService {
 
         while(req_body.hasMoreElements()){
             String body = req_body.nextElement();
+            System.out.println(body);
             jsonObject_detail.put(body, req.getParameter(body));
 
         }
