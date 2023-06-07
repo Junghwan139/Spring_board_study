@@ -22,7 +22,7 @@ import java.util.Enumeration;
 public class LogService {
 
     // Around 어노테이션을 통해 logging의 대상을 지정
-    @Around("execution(* com.example.spring_board_study..controller..*.*(..))")
+    @Around("execution(* com.example.spring_board_study..*.*(..))")
     public Object controllerLogger(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
 
         JSONObject jsonObject = new JSONObject();
@@ -36,15 +36,14 @@ public class LogService {
 
         while(req_body.hasMoreElements()){
             String body = req_body.nextElement();
-            System.out.println(body);
             jsonObject_detail.put(body, req.getParameter(body));
 
         }
         jsonObject.put("user inputs",jsonObject_detail);
 
 
-        log.debug("안찍힘");
-        log.error("찍힘");
+//        log.debug("안찍힘");
+//        log.error("찍힘");
         log.info("request info"+jsonObject);
 
         return proceedingJoinPoint.proceed();

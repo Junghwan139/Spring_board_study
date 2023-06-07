@@ -1,7 +1,8 @@
-package com.example.spring_board_study.s1_post;
+package com.example.spring_board_study.s1_post.controller;
 
 import com.example.spring_board_study.s1_author.s1Author;
-import com.example.spring_board_study.s1_post.controller.s1Post;
+import com.example.spring_board_study.s1_post.s1Post;
+import com.example.spring_board_study.s1_post.s1PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class s1PostController {
 
-    @Autowired s1PostService s1posv;
+    @Autowired
+    s1PostService s1posv;
 
     // find_all
     @GetMapping("s1_posts")
