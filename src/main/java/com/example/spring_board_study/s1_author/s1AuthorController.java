@@ -1,4 +1,4 @@
-package com.example.spring_board_study.s1_author.controller;
+package com.example.spring_board_study.s1_author;
 
 import com.example.spring_board_study.s1_author.s1Author;
 import com.example.spring_board_study.s1_author.s1AuthorRequestDto;
