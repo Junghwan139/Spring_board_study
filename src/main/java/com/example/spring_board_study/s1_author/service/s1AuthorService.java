@@ -1,5 +1,8 @@
-package com.example.spring_board_study.s1_author;
+package com.example.spring_board_study.s1_author.service;
 
+import com.example.spring_board_study.s1_author.s1Author;
+import com.example.spring_board_study.s1_author.s1AuthorRepository;
+import com.example.spring_board_study.s1_author.s1AuthorRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +12,8 @@ import java.util.List;
 @Service
 public class s1AuthorService {
 
-    @Autowired s1AuthorRepository s1auRepo;
+    @Autowired
+    s1AuthorRepository s1auRepo;
 
     // 저장
     public void save(s1AuthorRequestDto author){
@@ -46,7 +50,5 @@ public class s1AuthorService {
     public void delete(Long id){
         s1auRepo.delete(this.findByid(id));
     }
-
-
 
 }

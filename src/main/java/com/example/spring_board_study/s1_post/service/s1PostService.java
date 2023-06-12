@@ -1,6 +1,8 @@
-package com.example.spring_board_study.s1_post;
+package com.example.spring_board_study.s1_post.service;
 
 import com.example.spring_board_study.s1_author.s1AuthorRepository;
+import com.example.spring_board_study.s1_post.s1Post;
+import com.example.spring_board_study.s1_post.s1PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,7 +12,8 @@ import java.util.List;
 @Service
 public class s1PostService {
 
-    @Autowired s1PostRepository s1PoRepo;
+    @Autowired
+    s1PostRepository s1PoRepo;
     @Autowired s1AuthorRepository s1auRepo;
 
     // save

@@ -1,10 +1,8 @@
 package com.example.spring_board_study.s1_author;
 
-import com.example.spring_board_study.s1_author.s1Author;
-import com.example.spring_board_study.s1_author.s1AuthorRequestDto;
-import com.example.spring_board_study.s1_author.s1AuthorService;
+import com.example.spring_board_study.s1_author.service.s1AuthorService;
 import com.example.spring_board_study.s1_post.s1Post;
-import com.example.spring_board_study.s1_post.s1PostService;
+import com.example.spring_board_study.s1_post.service.s1PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -76,6 +74,15 @@ public class s1AuthorController {
         s1sv.update(author);
         return "redirect:/s1_authors";
     }
+
+/*
+
+    @GetMapping("s1_author_login")
+    public String authorlogin(){
+        return "s1/login";
+    }
+
+*/
 
 
 
