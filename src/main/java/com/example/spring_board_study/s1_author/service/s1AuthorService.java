@@ -4,16 +4,25 @@ import com.example.spring_board_study.s1_author.s1Author;
 import com.example.spring_board_study.s1_author.s1AuthorRepository;
 import com.example.spring_board_study.s1_author.s1AuthorRequestDto;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.Collections;
 import java.util.List;
 
 @Service
-public class s1AuthorService {
+public class s1AuthorService implements UserDetailsService {
 
     @Autowired
     s1AuthorRepository s1auRepo;
+
+    @Autowired
+    private PasswordEncoder passwordEncoder;
 
     // 저장
     public void save(s1AuthorRequestDto author){
@@ -21,7 +30,7 @@ public class s1AuthorService {
                 .name(author.getName())
                 .email(author.getEmail())
                 .role(author.getRole())
-                .password(author.getPassword())
+                .password(passwordEncoder.encode(author.getPassword()))
                 .build();
         s1auRepo.save(author1);
     }
@@ -50,5 +59,14 @@ public class s1AuthorService {
     public void delete(Long id){
         s1auRepo.delete(this.findByid(id));
     }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        s1Author author = s1auRepo.findByEmail(username);
+        if(author==null){
+        }
+        return new User(author.getEmail(), author.getPassword(), Collections.emptyList());
+    }
+
 
 }

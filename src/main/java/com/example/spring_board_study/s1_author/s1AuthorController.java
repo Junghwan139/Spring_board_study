@@ -75,14 +75,14 @@ public class s1AuthorController {
         return "redirect:/s1_authors";
     }
 
-/*
+
 
     @GetMapping("s1_author_login")
     public String authorlogin(){
         return "s1/login";
     }
 
-*/
+
 
 
 

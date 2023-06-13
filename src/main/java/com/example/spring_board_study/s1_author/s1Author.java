@@ -25,7 +25,7 @@ public class s1Author {
     @Column(length = 50, unique = true)
     private String email;
 
-    @Column(length = 20)
+    @Column(length = 255)
     private String password;
 
     @Column
