@@ -41,7 +41,7 @@ public class s1PostController {
 
     // write_post
     @PostMapping("s1_post_write")
-    public String s1_post_write_p(s1Post post){
+    public String s1_post_write_p(s1PostRequestDto post){
         s1posv.s1_save(post);
         return "redirect:/s1_posts";
     }
