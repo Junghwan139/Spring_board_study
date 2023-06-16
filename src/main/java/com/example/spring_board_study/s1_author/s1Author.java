@@ -42,6 +42,7 @@ public class s1Author {
         this.password = password;
         this.role = role;
         this.created_at = LocalDateTime.now();
+
     }
 
 
