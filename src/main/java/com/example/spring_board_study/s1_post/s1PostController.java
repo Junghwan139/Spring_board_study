@@ -58,6 +58,7 @@ public class s1PostController {
     public String s1_post_up(@RequestParam (value = "id")Long myid,s1Post post){
         s1posv.s1_update(post,myid);
         return "redirect:/s1_posts";
+
     }
 
 
